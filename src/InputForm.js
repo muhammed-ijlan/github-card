@@ -18,13 +18,14 @@ function InputForm() {
     const fetchUser = async () => {
       const res = await axios.get(`https://api.github.com/users/${userInput}`, {
         headers: {
-          // TODO:ADD YOUR TOKEN HERE. IF YOU WANT TO USE MY TOKEN, IT IS IN THE ENV FILE
+          // 
+          // TODO: ADD YOUR GITHUB ACCESS TOKEN HERE..
           'Authorization': `Bearer {YOUR TOKEN}`,
           'Content-Type': 'application/json',
           'Accept': 'application/vnd.github.v3+json'
         }
       });
-      console.log("ENV", process.env.GIT_TOKEN);
+
       setUserId(res.data.login)
       setUserName(res.data.name)
       setUserImg(res.data.avatar_url)
